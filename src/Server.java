@@ -5,16 +5,15 @@ import java.net.Socket;
 
 public class Server {
     public static void main(String[] args) throws IOException{
-        ServerSocket serverSocket = new ServerSocket(1337);
-        while (true){
-            Socket socket = serverSocket.accept();
-            DataInputStream dis = new DataInputStream(socket.getInputStream());
-            String message = dis.readUTF();
-            DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
-            dos.writeUTF(message);
-            dis.close();
-            dos.close();
-            socket.close();
+        try(ServerSocket serverSocket = new ServerSocket(1337)){
+            while (true){
+                Socket socket = serverSocket.accept();
+                try(DataInputStream dis = new DataInputStream(socket.getInputStream());
+                    DataOutputStream dos = new DataOutputStream(socket.getOutputStream())){
+                    String message = dis.readUTF();
+                    dos.writeUTF(message);
+                }
+            }
         }
     }
 }

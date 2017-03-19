@@ -15,7 +15,7 @@ public class ViiviseHoiataja implements Kontrollija {
 
     @Override
     public void salvestaViivis(String kirjelddus, String laenutaja, double viivis) {
-        if (viiviseLiimit < viivis && volglased.indexOf(laenutaja) == -1){
+        if (viiviseLiimit < viivis && !volglased.contains(laenutaja)){
             volglased.add(laenutaja);
         }
     }

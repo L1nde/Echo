@@ -3,5 +3,5 @@ package NaidisKT;/*
  */
 
 public interface Kontrollija  {
-    void salvestaViivis(String kirjelddus, String laenutaja, double viivis);
+    void salvestaViivis(String laenutaja, String kirjelddus, double viivis);
 }

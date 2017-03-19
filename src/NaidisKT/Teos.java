@@ -22,7 +22,7 @@ public abstract class Teos implements Comparable<Teos> {
             case("roheline"):
                 return 1;
             case("puudub"):
-                return 1;
+                return 14;
             case("kollane"):
                 return 30;
             case("sinine"):
@@ -49,7 +49,7 @@ public abstract class Teos implements Comparable<Teos> {
 
     public void arvutaViivis(Kontrollija kontrollija){
         if (laenutusaeg() < pikkus){
-            kontrollija.salvestaViivis(kirjeldus, laenutaja, (pikkus-laenutusaeg())*päevaneViivis());
+            kontrollija.salvestaViivis(laenutaja, kirjeldus, (pikkus-laenutusaeg())*päevaneViivis());
         }
     }
 
